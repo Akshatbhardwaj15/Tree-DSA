@@ -107,6 +107,11 @@ Node* delK(Node* head, int k){
     }
     return head;
 }
+
+Node* insertAtHead(Node*head, int k){
+    Node* temp = new Node(k, head);
+    return temp;
+}
 int main(){
     vector<int> arr = {12, 5, 8, 7};
 
@@ -118,7 +123,8 @@ int main(){
     // head = removesHead(head);
     // cout<<head->data<<endl;
 
-    head = delK(head, 5);
+    // head = delK(head, 5);
+    head = insertAtHead(head, 100);
     Node* temp = head;
     while(temp){
         cout<<temp->data<<endl;
