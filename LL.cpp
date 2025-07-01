@@ -43,13 +43,13 @@ int length(Node *head)
     }
     return cnt;
 }
-int traversal(Node* head){
+void traversal(Node* head){
     Node* temp = head;
     while(temp){
         cout<<temp->data<<" ";
         temp = temp->next;
     }
-    return 0;
+    cout<<endl;
 }
 int searchInLinkedList(Node* head, int k) {
     // Write your code here.
