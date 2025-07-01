@@ -31,9 +31,41 @@ Node* convertArr2LL(vector<int> &arr){
     }
     return head;
 }
+
+int length(Node *head)
+{
+	//Write your code here
+    int cnt = 0;
+    Node* temp =  head;
+    while(temp){
+        temp = temp->next;
+        cnt++;
+    }
+    return cnt;
+}
+int traversal(Node* head){
+    Node* temp = head;
+    while(temp){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    return 0;
+}
+int searchInLinkedList(Node* head, int k) {
+    // Write your code here.
+    Node* temp = head;
+    while(temp){
+        if(temp->data == k) return 1;
+        temp = temp->next;
+    }
+    return false;
+}
 int main(){
     vector<int> arr = {12, 5, 8, 7};
 
     Node* head = convertArr2LL(arr);
-    cout<<head->data<<endl;
+    // cout<<head->data<<endl;
+    // cout<<length(head)<<endl;
+    // cout<<searchInLinkedList(head, 5)<<endl;
+    traversal(head);
 }
