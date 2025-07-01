@@ -60,6 +60,14 @@ int searchInLinkedList(Node* head, int k) {
     }
     return false;
 }
+
+Node* removesHead(Node* head){
+    if(head == NULL) return head;
+    Node* temp  = head;
+    head = head->next;
+    delete temp;
+    return head;
+}
 int main(){
     vector<int> arr = {12, 5, 8, 7};
 
@@ -67,5 +75,7 @@ int main(){
     // cout<<head->data<<endl;
     // cout<<length(head)<<endl;
     // cout<<searchInLinkedList(head, 5)<<endl;
-    traversal(head);
+    // traversal(head);
+    head = removesHead(head);
+    cout<<head->data<<endl;
 }
