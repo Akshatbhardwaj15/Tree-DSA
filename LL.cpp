@@ -112,6 +112,64 @@ Node* insertAtHead(Node*head, int k){
     Node* temp = new Node(k, head);
     return temp;
 }
+
+Node* insertAtTail(Node* head, int k){
+    if(head == NULL) return new Node(k);
+    Node* temp = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    Node* newNode = new Node(k);
+    temp->next = newNode;
+    return head;
+}
+
+Node* insertATK(Node* head, int ele, int k){
+    if(head == NULL){
+        if(k == 1){
+            return new Node(ele);
+        }
+        else {
+            return head;
+        }
+    }
+    if(k == 1){
+        return new Node(ele, head);
+    }
+
+    int cnt = 0;
+    Node* temp = head;
+    while(temp != NULL){
+        cnt++;
+        if(cnt == k-1){
+            Node* x = new Node(ele, temp->next);
+            temp->next = x;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
+
+Node* insertBefore(Node* head, int ele, int val){
+    if(head == NULL){
+        return NULL;
+    }
+    if(head->data == val){
+        return new Node(ele, head);
+    }
+
+    Node* temp = head;
+    while(temp->next != NULL){
+        if(temp->next->data == val){
+            Node* x = new Node(ele, temp->next);
+            temp->next = x;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
 int main(){
     vector<int> arr = {12, 5, 8, 7};
 
@@ -124,7 +182,10 @@ int main(){
     // cout<<head->data<<endl;
 
     // head = delK(head, 5);
-    head = insertAtHead(head, 100);
+    // head = insertAtHead(head, 100);
+    // head = insertAtTail(head, 100);
+    // head = insertATK(head, 100, 3);
+    head = insertBefore(head, 100, 5);
     Node* temp = head;
     while(temp){
         cout<<temp->data<<endl;
