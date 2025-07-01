@@ -68,6 +68,20 @@ Node* removesHead(Node* head){
     delete temp;
     return head;
 }
+
+Node* removeTail(Node* head){
+    if(head == NULL || head->next == NULL)
+        return NULL;
+
+    Node* temp = head;
+    while(temp->next->next != NULL){
+        temp = temp->next;
+    }
+    delete temp->next;
+    temp->next = NULL;
+
+    return head;
+}
 int main(){
     vector<int> arr = {12, 5, 8, 7};
 
@@ -76,6 +90,14 @@ int main(){
     // cout<<length(head)<<endl;
     // cout<<searchInLinkedList(head, 5)<<endl;
     // traversal(head);
-    head = removesHead(head);
-    cout<<head->data<<endl;
+    // head = removesHead(head);
+    // cout<<head->data<<endl;
+
+    head = removeTail(head);
+    Node* temp = head;
+    while(temp){
+        cout<<temp->data<<endl;
+        temp = temp->next;
+    }
+    
 }
